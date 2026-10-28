@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('dataProjects');
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+const dateLabel = d.date.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+---
+
+<Layout title={`${d.title} — Studi Kasus`} description={d.summary}>
+  <Nav />
+  <main class="container">
+    <a href="/#data" class="back">← Kembali ke portfolio</a>
+
+    <header>
+      <p class="section-label">Studi Kasus · {dateLabel}</p>
+      <h1>{d.title}</h1>
+      <p class="summary">{d.summary}</p>
+      <div class="tags">{d.tools.map((t) => <span class="tag">{t}</span>)}</div>
+      <div class="links">
+        {d.dashboardUrl && <a href={d.dashboardUrl} class="btn btn-primary" target="_blank" rel="noopener">Buka Dashboard</a>}
+        {d.repoUrl && <a href={d.repoUrl} class="btn" target="_blank" rel="noopener">Lihat Kode</a>}
+      </div>
+    </header>
+
+    {
+      d.highlights.length > 0 && (
+        <div class="highlights">
+          {d.highlights.map((h) => (
+            <div class="card">{h}</div>
+          ))}
+        </div>
+      )
+    }
+
+    {d.cover && <Image src={d.cover} alt={d.title} class="cover" widths={[800, 1200]} sizes="(max-width: 860px) 100vw, 860px" />}
+
+    {
+      d.embedUrl && (
+        <div class="embed card">
+          <iframe src={d.embedUrl} title={`Dashboard ${d.title}`} loading="lazy" allowfullscreen />
+        </div>
+      )
+    }
+
+    <article class="prose">
+      <Content />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 860px;
+    padding-top: 48px;
+    padding-bottom: 140px;
+  }
+
+  .back {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .back:hover {
+    color: var(--text);
+  }
+
+  header {
+    margin: 48px 0 40px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    margin-bottom: 18px;
+  }
+
+  .summary {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin: 0 0 22px;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .highlights .card {
+    padding: 20px;
+    border-top: 2px solid var(--accent);
+    font-weight: 500;
+  }
+
+  .cover {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .embed {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    margin: 44px 0 14px;
+  }
+
+  .prose :global(p),
+  .prose :global(li) {
+    color: #c4cad6;
+  }
+
+  .prose :global(blockquote) {
+    margin: 0;
+    padding: 14px 20px;
+    border-left: 3px solid var(--accent);
+    background: var(--card);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .prose :global(blockquote p) {
+    margin: 0;
+  }
+
+  .prose :global(img) {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .prose :global(code) {
+    background: var(--card);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.9em;
+  }
+</style>

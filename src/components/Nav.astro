@@ -1,0 +1,104 @@
+---
+// Menu melayang di bagian bawah layar
+const links = [
+  { id: 'home', label: 'Home', icon: 'M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z' },
+  { id: 'about', label: 'Tentang', icon: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-8 9a8 8 0 0 1 16 0' },
+  { id: 'data', label: 'Data', icon: 'M4 20V10m6 10V4m6 16v-7m4 7H2' },
+  { id: 'projects', label: 'Proyek', icon: 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' },
+  { id: 'skills', label: 'Skill', icon: 'M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z' },
+  { id: 'contact', label: 'Kontak', icon: 'M4 6h16v12H4zm0 0l8 7 8-7' },
+];
+---
+
+<nav class="nav" aria-label="Navigasi utama">
+  {
+    links.map((l) => (
+      <a href={`/#${l.id}`} data-target={l.id}>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d={l.icon} />
+        </svg>
+        <span>{l.label}</span>
+      </a>
+    ))
+  }
+</nav>
+
+<script>
+  // Tandai menu sesuai section yang sedang terlihat
+  const links = document.querySelectorAll<HTMLAnchorElement>('.nav a');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((a) =>
+          a.classList.toggle('active', a.dataset.target === entry.target.id),
+        );
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  );
+  links.forEach((a) => {
+    const section = document.getElementById(a.dataset.target ?? '');
+    if (section) observer.observe(section);
+  });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    gap: 4px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(22, 26, 35, 0.75);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  a:hover {
+    color: var(--text);
+  }
+
+  a.active {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Di HP hanya tampilkan ikon */
+  @media (max-width: 640px) {
+    a span {
+      display: none;
+    }
+    a {
+      padding: 11px;
+    }
+  }
+</style>

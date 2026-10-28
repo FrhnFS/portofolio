@@ -1,0 +1,134 @@
+---
+import { about, stats, education, experience } from '../data/profile';
+---
+
+<section id="about">
+  <div class="container">
+    <p class="section-label reveal">Tentang Saya</p>
+    <div class="about-grid">
+      <div class="reveal">
+        <h2 class="section-title">Sedikit tentang saya</h2>
+        {about.map((p) => <p class="text">{p}</p>)}
+        <div class="stats">
+          {
+            stats.map((s) => (
+              <div>
+                <strong>{s.value}</strong>
+                <span>{s.label}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="card timeline reveal">
+          <h3>Pendidikan</h3>
+          <ul>
+            {
+              education.map((e) => (
+                <li>
+                  <span class="period">{e.period}</span>
+                  <strong>{e.title}</strong>
+                  <span class="place">{e.place}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="card timeline reveal">
+          <h3>Pengalaman &amp; Sertifikat</h3>
+          <ul>
+            {
+              experience.map((c) => (
+                <li>
+                  <span class="period">{c.period}</span>
+                  <strong>{c.title}</strong>
+                  <span class="place">{c.place}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  .text {
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  .stats strong {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 2.2rem;
+    color: var(--text);
+  }
+
+  .stats span {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .timeline-wrap {
+    display: grid;
+    gap: 20px;
+  }
+
+  .timeline {
+    padding: 26px 28px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  li {
+    display: grid;
+    padding-left: 18px;
+    border-left: 2px solid var(--border);
+  }
+
+  .period {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .place {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

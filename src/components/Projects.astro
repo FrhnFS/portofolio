@@ -1,0 +1,64 @@
+---
+import { generalProjects } from '../data/profile';
+---
+
+{
+  generalProjects.length > 0 && (
+    <section id="projects">
+      <div class="container">
+        <p class="section-label reveal">Proyek Lainnya</p>
+        <h2 class="section-title reveal">Proyek umum</h2>
+        <p class="section-desc reveal">Proyek dan karya lain di luar analisis data.</p>
+        <div class="grid">
+          {generalProjects.map((p, i) => (
+            <a href={p.url} class="card project reveal" target={p.url.startsWith('http') ? '_blank' : undefined} rel="noopener">
+              <span class="num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{p.title}</h3>
+              <p>{p.description}</p>
+              <div class="tags">
+                {p.tags.map((t) => (
+                  <span class="tag">{t}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .project {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project:hover {
+    transform: translateY(-4px);
+  }
+
+  .num {
+    font-family: var(--font-head);
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    color: var(--muted);
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+  }
+</style>

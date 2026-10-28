@@ -1,0 +1,91 @@
+---
+import { contacts, profile } from '../data/profile';
+
+const email = contacts.find((c) => c.label === 'Email');
+---
+
+<section id="contact">
+  <div class="container">
+    <div class="card cta reveal">
+      <p class="section-label">Kontak</p>
+      <h2 class="section-title">Mari bekerja sama</h2>
+      <p class="desc">
+        Tertarik berdiskusi tentang proyek, kolaborasi, atau peluang kerja? Jangan ragu untuk
+        menghubungi saya.
+      </p>
+      {email && <a href={email.url} class="btn btn-primary">Kirim Email</a>}
+      <ul>
+        {
+          contacts.map((c) => (
+            <li>
+              <a href={c.url} target={c.url.startsWith('http') ? '_blank' : undefined} rel="noopener">
+                <span>{c.label}</span>
+                {c.value}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© {new Date().getFullYear()} {profile.name}</div>
+</footer>
+
+<style>
+  .cta {
+    padding: clamp(32px, 6vw, 64px);
+    text-align: center;
+    background: radial-gradient(circle at 50% 0%, rgba(232, 176, 74, 0.12), transparent 60%), var(--card);
+  }
+
+  .section-label {
+    justify-content: center;
+  }
+
+  .desc {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  li a {
+    display: grid;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    font-size: 0.92rem;
+    transition: border-color 0.2s;
+  }
+
+  li a:hover {
+    border-color: var(--accent);
+  }
+
+  li span {
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  footer {
+    padding: 30px 0 110px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
