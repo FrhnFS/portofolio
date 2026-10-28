@@ -67,20 +67,12 @@ section {
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 14px;
-}
-
-.section-label::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: currentColor;
 }
 
 .section-title {

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2131"/><stop offset="1" stop-color="#0e1219"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.35" r="0.55">
+      <stop offset="0" stop-color="#4a8fe8" stop-opacity="0.28"/><stop offset="1" stop-color="#4a8fe8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <text x="48" y="70" fill="#e8b04a" font-size="15" font-weight="700" letter-spacing="3">WEB · MAPS</text>
+    <text x="48" y="112" fill="#e9ecf2" font-size="32" font-weight="700">Bank Sampah Maps</text>
+  </g>
+  
+  <g transform="translate(360 150)" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="10" stroke-linecap="round">
+    <path d="M0 60H400M0 170H400M90 0V240M260 0V240"/>
+  </g>
+  <g transform="translate(450 210) scale(1)">
+    <path d="M0 40C-26 10-30-4-30-14A30 30 0 0 1 30-14C30-4 26 10 0 40Z" fill="#4a8fe8"/>
+    <circle cy="-14" r="11" fill="#0e1219"/>
+  </g><g transform="translate(620 300) scale(1)">
+    <path d="M0 40C-26 10-30-4-30-14A30 30 0 0 1 30-14C30-4 26 10 0 40Z" fill="#4a8fe8"/>
+    <circle cy="-14" r="11" fill="#0e1219"/>
+  </g><g transform="translate(540 160) scale(1.4)">
+    <path d="M0 40C-26 10-30-4-30-14A30 30 0 0 1 30-14C30-4 26 10 0 40Z" fill="#e8b04a"/>
+    <circle cy="-14" r="11" fill="#0e1219"/>
+  </g>
+  <g transform="translate(150 290)" fill="none" stroke="#4ade80" stroke-width="9" stroke-linecap="round">
+    <path d="M-40 10A42 42 0 0 1 20-38"/><path d="M40-8A42 42 0 0 1-12 40"/>
+    <path d="M10-50L22-38L8-26M-4 52L-14 40L0 28" stroke-linejoin="round"/>
+  </g>
+</svg>

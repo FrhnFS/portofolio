@@ -1,5 +1,5 @@
 ---
-import { about, stats, education, experience } from '../data/profile';
+import { about, stats, education, experience, certificates } from '../data/profile';
 ---
 
 <section id="about">
@@ -37,7 +37,7 @@ import { about, stats, education, experience } from '../data/profile';
           </ul>
         </div>
         <div class="card timeline reveal">
-          <h3>Pengalaman &amp; Sertifikat</h3>
+          <h3>Pengalaman</h3>
           <ul>
             {
               experience.map((c) => (
@@ -51,6 +51,29 @@ import { about, stats, education, experience } from '../data/profile';
           </ul>
         </div>
       </div>
+    </div>
+
+    <h3 class="cert-heading reveal">Sertifikasi Kompetensi</h3>
+    <div class="certs">
+      {
+        certificates.map((c) => (
+          <a href={c.url} class="card cert reveal" target="_blank" rel="noopener">
+            <div class="cert-top">
+              <span class="badge">BNSP</span>
+              <span class="cert-date">{c.date} · berlaku s.d. {c.validUntil}</span>
+            </div>
+            <strong class="cert-title">{c.title}</strong>
+            <span class="cert-field">{c.field}</span>
+            <span class="cert-issuer">{c.issuer}</span>
+            <div class="tags">
+              {c.units.map((u) => (
+                <span class="tag">{u}</span>
+              ))}
+            </div>
+            <span class="cert-link">Lihat sertifikat →</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -123,6 +146,76 @@ import { about, stats, education, experience } from '../data/profile';
   .place {
     color: var(--muted);
     font-size: 0.9rem;
+  }
+
+  .cert-heading {
+    font-size: 1.4rem;
+    margin: 64px 0 20px;
+  }
+
+  .certs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .cert {
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: radial-gradient(circle at 100% 0%, rgba(232, 176, 74, 0.1), transparent 55%), var(--card);
+  }
+
+  .cert:hover {
+    transform: translateY(-4px);
+  }
+
+  .cert-link {
+    margin-top: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .cert-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #1a1408;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .cert-date {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .cert-title {
+    font-family: var(--font-head);
+    font-size: 1.35rem;
+  }
+
+  .cert-field {
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .cert-issuer {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
   }
 
   @media (max-width: 860px) {

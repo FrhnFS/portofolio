@@ -3,6 +3,7 @@ title: Prediksi Penyakit Jantung
 summary: Aplikasi web untuk memprediksi risiko penyakit jantung dari data klinis pasien menggunakan algoritma K-Nearest Neighbors (KNN).
 tools: [Python, scikit-learn, Pandas, Streamlit]
 date: 2024-07-01
+cover: ../../assets/covers/jantung.svg
 dashboardUrl: https://knnjantung.streamlit.app/
 embedUrl: https://knnjantung.streamlit.app/?embed=true
 repoUrl: https://github.com/FrhnFS/knn_jantung

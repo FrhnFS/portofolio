@@ -3,6 +3,7 @@ title: Dashboard PKH & Kemiskinan Jawa Barat
 summary: Dashboard web untuk menganalisis penerima Program Keluarga Harapan (PKH) dan tingkat kemiskinan di 27 kabupaten/kota Jawa Barat tahun 2017–2024, lengkap dengan prediksi dan evaluasinya.
 tools: [Python, Pandas, FastAPI, Next.js, Google Colab]
 date: 2026-02-01
+cover: ../../assets/covers/pkh-jabar.svg
 featured: true
 repoUrl: https://github.com/FrhnFS/psd2
 highlights:

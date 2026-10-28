@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2131"/><stop offset="1" stop-color="#0e1219"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.35" r="0.55">
+      <stop offset="0" stop-color="#4a8fe8" stop-opacity="0.28"/><stop offset="1" stop-color="#4a8fe8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <text x="48" y="70" fill="#e8b04a" font-size="15" font-weight="700" letter-spacing="3">CLASSIFICATION · KNN</text>
+    <text x="48" y="112" fill="#e9ecf2" font-size="32" font-weight="700">Prediksi Penyakit Jantung</text>
+  </g>
+  
+  <path d="M0 290H230L260 230L295 350L330 180L365 320L390 290H800" fill="none" stroke="#4a8fe8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(610 250) scale(1.6)">
+    <path d="M0 30C-40 2-55-18-42-36C-32-50-12-48 0-32C12-48 32-50 42-36C55-18 40 2 0 30Z" fill="#e8b04a"/>
+  </g>
+  <circle cx="120" cy="200" r="7" fill="#4a8fe8" fill-opacity="0.7"/><circle cx="160" cy="170" r="7" fill="#e8b04a" fill-opacity="0.7"/><circle cx="90" cy="340" r="7" fill="#4a8fe8" fill-opacity="0.7"/><circle cx="470" cy="180" r="7" fill="#e8b04a" fill-opacity="0.7"/><circle cx="500" cy="360" r="7" fill="#4a8fe8" fill-opacity="0.7"/><circle cx="440" cy="330" r="7" fill="#e8b04a" fill-opacity="0.7"/>
+</svg>

@@ -18,7 +18,7 @@ const dateLabel = d.date.toLocaleDateString('id-ID', { month: 'long', year: 'num
 <Layout title={`${d.title} — Studi Kasus`} description={d.summary}>
   <Nav />
   <main class="container">
-    <a href="/#data" class="back">← Kembali ke portfolio</a>
+    <a href="/#projects" class="back">← Kembali ke portfolio</a>
 
     <header>
       <p class="section-label">Studi Kasus · {dateLabel}</p>
@@ -41,7 +41,7 @@ const dateLabel = d.date.toLocaleDateString('id-ID', { month: 'long', year: 'num
       )
     }
 
-    {d.cover && <Image src={d.cover} alt={d.title} class="cover" widths={[800, 1200]} sizes="(max-width: 860px) 100vw, 860px" />}
+    {d.cover && !d.embedUrl && <Image src={d.cover} alt={d.title} class="cover" widths={[800, 1200]} sizes="(max-width: 860px) 100vw, 860px" />}
 
     {
       d.embedUrl && (

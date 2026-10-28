@@ -3,6 +3,7 @@ title: Dashboard Analisis CV-ATS
 summary: Dashboard interaktif yang menganalisis dan memprediksi apakah sebuah CV lolos sistem ATS (Applicant Tracking System) menggunakan text mining dan machine learning.
 tools: [Python, scikit-learn, NLP, Streamlit]
 date: 2025-08-01
+cover: ../../assets/covers/cv-ats.svg
 featured: true
 dashboardUrl: https://cv-ats-cheker-v1.streamlit.app/
 embedUrl: https://cv-ats-cheker-v1.streamlit.app/?embed=true

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2131"/><stop offset="1" stop-color="#0e1219"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.35" r="0.55">
+      <stop offset="0" stop-color="#4a8fe8" stop-opacity="0.28"/><stop offset="1" stop-color="#4a8fe8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <text x="48" y="70" fill="#e8b04a" font-size="15" font-weight="700" letter-spacing="3">WEB · DESIGN PATTERN</text>
+    <text x="48" y="112" fill="#e9ecf2" font-size="32" font-weight="700">Event Ticketing System</text>
+  </g>
+  
+  <g transform="translate(380 160)">
+    <path d="M0 16Q0 0 16 0H344Q360 0 360 16V80A22 22 0 0 0 360 124V184Q360 200 344 200H16Q0 200 0 184V124A22 22 0 0 0 0 80Z" fill="#1f2738" stroke="#ffffff" stroke-opacity="0.12"/>
+    <path d="M250 14V186" stroke="#9aa3b5" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6 8"/>
+    <rect x="28" y="34" width="150" height="14" rx="7" fill="#e9ecf2" fill-opacity="0.8"/>
+    <rect x="28" y="62" width="100" height="10" rx="5" fill="#9aa3b5" fill-opacity="0.5"/>
+    <rect x="28" y="140" width="90" height="30" rx="15" fill="#e8b04a"/>
+    <g transform="translate(270 62)">
+      <rect x="0" y="0" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="16" y="0" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="48" y="0" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="0" y="16" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="32" y="16" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="48" y="16" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="16" y="32" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="32" y="32" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="0" y="48" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="32" y="48" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="48" y="48" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="16" y="64" width="14" height="14" rx="2" fill="#4a8fe8"/><rect x="48" y="64" width="14" height="14" rx="2" fill="#4a8fe8"/>
+    </g>
+  </g>
+</svg>
