@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Ganti `site` dengan alamat Vercel Anda setelah deploy
+// Alamat website di Vercel (dipakai untuk link dan SEO)
 export default defineConfig({
-  site: 'https://portfolio-anda.vercel.app',
+  site: 'https://portofolio-topaz-chi-hrnh1miiwd.vercel.app',
 });
